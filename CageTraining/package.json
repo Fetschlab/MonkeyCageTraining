@@ -1,0 +1,23 @@
+{
+  "name": "CageTraining",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://172.29.2.58:3000/",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "dropbox": "^2.5.13",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "serialport": "^5.0.0-beta3"
+  },
+  "devDependencies": {
+    "react-scripts": "0.9.5",
+    "serialport": "^5.0.0-beta3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
