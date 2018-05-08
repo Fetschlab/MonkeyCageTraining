@@ -17,7 +17,7 @@ class Stage2 extends Component {
     let centery = []
     var screenCenterX = 0.5 * this.props.width
     var screenCenterY = 0.5 * this.props.height
-    var apertureRad = 0.4 * this.props.width
+    var apertureRad = 0.3 * this.props.width
     for(var point = 0; point < 2 * this.props.numpoints; point++) {
       centerx[point] = (Math.random() * apertureRad) + screenCenterX - (apertureRad / 2);
       centery[point] = (Math.random() * apertureRad) + screenCenterY - (apertureRad / 2);
@@ -44,9 +44,13 @@ class Stage2 extends Component {
     for(var frame = 0; frame < this.props.numframes; frame++) {
       var startpoint = (frame % 2 === 0) ? 0 : this.props.numpoints
       for(var point = startpoint; point < startpoint + this.props.numpoints; point++) {
+        let x = ((this.state.centerx[point] + frame * this.props.jump) < (0.5 * this.props.width - 0.1 * this.props.width)) ?
+        (this.state.centerx[point] + frame * this.props.jump) + (0.2 * this.props.width) : this.state.centerx[point] + frame * this.props.jump
+   // where it will be after next push compared to the aperture of the circle
+   // if it is outside of radius, loop point back by diameter
         circles.push(<Circle
           key={2 * frame * this.props.numpoints + point}  // unique key
-          centerx={this.state.centerx[point] + frame * this.props.jump}
+          centerx={x} // sets the centerx to x specified in line 47
           centery={this.state.centery[point]}
           radius='2'
           color='white'
