@@ -2,7 +2,7 @@
   "name": "CageTraining",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://172.29.2.58:3000/",
+  "homepage": "https://pages.jh.edu/~cfetsch1/MonkeyCageTraining/",
   "dependencies": {
     "child_process": "^1.0.2",
     "dropbox": "^2.5.13",
