@@ -33,7 +33,8 @@ class TrialDots extends Component {
     this.setState(prevState => ({
       stage: 1,
       direction: direction,
-      jump: ((direction === false) ? -10 : 10),
+      jump: ((direction === false) ? -10 : 10), // direction 
+      jump2: ((direction === true) ? -10 : 10), // used for coherence direction
       frameDuration: 20,
       coherence: Utils.getCoherenceCondition(),
       timeDelayToDotOnset: Utils.getRandomIntExp(200,1000,200),
