@@ -31,12 +31,33 @@ class Utils {
 
   // get a coherence value
   // usually start training your monkey with 768, adding 512 and 256 later:
+  // HK - function no longer used, refer to getTrialCoherence()
   static getCoherenceCondition() {
     let fullCohList = [256, 512, 768];
     let numberOfCoherences = fullCohList.length;
     let cohIndex = Math.floor(Math.random()*numberOfCoherences);
     let coherence = fullCohList[cohIndex];
     return coherence;
+  }
+
+  // HK - generates a coherence (high or low)
+  // .25 represents high, .75 represents low
+  static getTrialCoherence() {
+    let coherenceList = [.25, .75];
+    let numberOfCoherences = coherenceList.length;
+    let cohIndex = Math.floor(Math.random()*numberOfCoherences);
+    let trialCoherence = coherenceList[cohIndex];
+    return trialCoherence;
+  }
+
+  // HK - generates a direction (left or right)
+  // -1 represents left, +1 represents right
+  static getTrialDirection() {
+    let directionList = [-1, 1]
+    let numberOfDirections = directionList.length;
+    let dirIndex = Math.floor(Math.random()*numberOfDirections);
+    let trialDirection = directionList[dirIndex];
+    return trialDirection;
   }
 
   // function that parses arguments passed via URL:
