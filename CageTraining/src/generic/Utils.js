@@ -51,7 +51,7 @@ class Utils {
   }
 
   // HK - generates a direction (left or right)
-  // -1 represents left, +1 represents right
+  // -1 represents right, +1 represents left
   static getTrialDirection() {
     let directionList = [-1, 1]
     let numberOfDirections = directionList.length;

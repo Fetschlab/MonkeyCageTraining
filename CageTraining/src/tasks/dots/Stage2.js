@@ -49,9 +49,9 @@ class Stage2 extends Component {
         var startpoint = (frame % 2 === 0) ? 0 : this.props.numpoints
         for(var point = startpoint; point < startpoint + this.props.numpoints; point++) {
             if(this.state.direction > 0) {
-                x = ((this.state.centerx[point] + frame * this.props.jump) < (0.5 * this.props.width - 0.15 * this.props.width)) ? (this.state.centerx[point] + frame * this.props.jump) + (0.3 * this.props.width) : (this.state.centerx[point] + frame * this.props.jump)
+                x = ((this.state.centerx[point] + frame * this.props.jump) < (0.5 * this.props.width - 0.1 * this.props.width)) ? (this.state.centerx[point] + frame * this.props.jump) + (0.2 * this.props.width) : (this.state.centerx[point] + frame * this.props.jump)
             } else {
-                x = ((this.state.centerx[point] + frame * this.props.jump) > (0.5 * this.props.width + 0.15 * this.props.width)) ? (this.state.centerx[point] + frame * this.props.jump) - (0.3 * this.props.width) : (this.state.centerx[point] + frame * this.props.jump)
+                x = ((this.state.centerx[point] + frame * this.props.jump) > (0.5 * this.props.width + 0.1 * this.props.width)) ? (this.state.centerx[point] + frame * this.props.jump) - (0.2 * this.props.width) : (this.state.centerx[point] + frame * this.props.jump)
         }
 
    // where it will be after next push compared to the aperture of the circle
