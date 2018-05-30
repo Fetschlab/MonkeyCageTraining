@@ -127,7 +127,6 @@ class TrialDots extends Component {
             self.data.response=response;
             self.data.accuracy=(((response === 'left'  & self.state.direction === 1) |
                                  (response === 'right' & self.state.direction === -1)) ? 1 : 0);
-              // TODO: HK - fix accuracy given new direction naming
             self.data.goRT=tsResponse - tsTargetOnset;
             self.data.tsTargetOnset=tsTargetOnset;
             self.data.tsResponse=tsResponse;
