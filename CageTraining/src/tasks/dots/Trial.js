@@ -9,10 +9,11 @@ class TrialDots extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      presentBiasedTrialsPropRight: props.presentBiasedTrialsPropRight,
       height: props.height,
       width: props.width,
-    };  // TODO: Clean up states vs. props.
+      direction: props.direction,
+      coherence: props.coherence,
+    };
     this.generateTrial = this.generateTrial.bind(this);
     this.data = {}
   }
@@ -29,19 +30,21 @@ class TrialDots extends Component {
 
   // function that generates a new trial, and triggers render:
   generateTrial(props) {
-    let direction = (Math.random() < props.presentBiasedTrialsPropRight)
+    let direction = Utils.getTrialDirection() // HK - randomizes direction
+    let coherence = Utils.getTrialCoherence() // HK - randomizes coherence
     this.setState(prevState => ({
       stage: 1,
       direction: direction,
-      jump: ((direction === false) ? -10 : 10), // direction 
-      jump2: ((direction === true) ? -10 : 10), // used for coherence direction
+      coherence: coherence,
+      jump: ((direction > 0) ? -10 : 10), // HK - "accurate" direction
+      jump2: ((direction < 0) ? -4 : 4), // used for noise direction
       frameDuration: 20,
-      coherence: Utils.getCoherenceCondition(),
       timeDelayToDotOnset: Utils.getRandomIntExp(200,1000,200),
       timeDotDuration: Utils.getRandomInt(500,1000),
       timeTimeOut: 1000, // time to wait after response
     }));
   }
+
 
 // summary of requested times:
 //
@@ -92,6 +95,7 @@ class TrialDots extends Component {
           numpoints={5} // number of dots per frame
           jump={this.state.jump}
           coherence={this.state.coherence}
+          direction={this.state.direction}
           onFinalized={function(tsDotOnset) {
             self.data.tsDotOnset = tsDotOnset;
             self.setState(prevState => ({
@@ -121,9 +125,8 @@ class TrialDots extends Component {
               self.data[saveArray[i]] = self.state[saveArray[i]];
             }
             self.data.response=response;
-            self.data.accuracy=(((response === 'left'  & self.state.direction === false) |
-                                 (response === 'right' & self.state.direction === true)) ? 1 : 0);
-              // TODO: Give this a CORRECT name!
+            self.data.accuracy=(((response === 'left'  & self.state.direction === 1) |
+                                 (response === 'right' & self.state.direction === -1)) ? 1 : 0);
             self.data.goRT=tsResponse - tsTargetOnset;
             self.data.tsTargetOnset=tsTargetOnset;
             self.data.tsResponse=tsResponse;

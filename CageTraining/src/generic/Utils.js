@@ -20,6 +20,15 @@ class Utils {
     return rnd;
   }
 
+  // HK - generate a random value between 0 and 1, positive or negative
+  // used in the randomization of the Y-intercept
+  static getRandomYInt() {
+    var random = Math.random();
+    var sign = Math.random() < 0.5 ? -1 : 1;
+    let offset = random * sign;
+    return offset;
+  }
+
   // format number to string padded with zeros:
   static padWithZeros(number, length) {
     var str = '' + number;
@@ -31,12 +40,33 @@ class Utils {
 
   // get a coherence value
   // usually start training your monkey with 768, adding 512 and 256 later:
+  // HK - function no longer used, refer to getTrialCoherence()
   static getCoherenceCondition() {
     let fullCohList = [256, 512, 768];
     let numberOfCoherences = fullCohList.length;
     let cohIndex = Math.floor(Math.random()*numberOfCoherences);
     let coherence = fullCohList[cohIndex];
     return coherence;
+  }
+
+  // HK - generates a coherence (high or low)
+  // .25 represents high, .75 represents low
+  static getTrialCoherence() {
+    let coherenceList = [.25, .75];
+    let numberOfCoherences = coherenceList.length;
+    let cohIndex = Math.floor(Math.random()*numberOfCoherences);
+    let trialCoherence = coherenceList[cohIndex];
+    return trialCoherence;
+  }
+
+  // HK - generates a direction (left or right)
+  // -1 represents right, +1 represents left
+  static getTrialDirection() {
+    let directionList = [-1, 1]
+    let numberOfDirections = directionList.length;
+    let dirIndex = Math.floor(Math.random()*numberOfDirections);
+    let trialDirection = directionList[dirIndex];
+    return trialDirection;
   }
 
   // function that parses arguments passed via URL:
@@ -77,6 +107,7 @@ class Utils {
     let token = 'KRQ60jwJHuAAAAAAAAAACnWWgJ5vQEnGcZ2JwWTAbcbVTdoCLc1rLrLOldzJMfr-'
     let dbx = new Dropbox({accessToken: token});
     let contents = JSON.stringify(trialdata, null, 2);
+    console.log(trialdata);
     // let date = new Date();
     // let month = '0' + (date.getMonth() + 1).toString();
     // let day = '0' + date.getDate().toString()
