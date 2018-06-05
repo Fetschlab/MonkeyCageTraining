@@ -44,6 +44,7 @@ class Stage2 extends Component {
     // note: the coherence value is available here in 'this.props.coherence', but it is not yet used
     let circles = []
     let x = 0
+    let random = 0
 
     for(var frame = 0; frame < this.props.numframes; frame++) {
         var startpoint = (frame % 2 === 0) ? 0 : this.props.numpoints
@@ -53,13 +54,15 @@ class Stage2 extends Component {
             } else {
                 x = ((this.state.centerx[point] + frame * this.props.jump) > (0.5 * this.props.width + 0.1 * this.props.width)) ? (this.state.centerx[point] + frame * this.props.jump) - (0.2 * this.props.width) : (this.state.centerx[point] + frame * this.props.jump)
         }
+            random = (Utils.getRandomYInt() * this.props.height)/20
+            // HK - the integer used to divide determines degree of randomization
 
    // where it will be after next push compared to the aperture of the circle
    // if it is outside of radius, loop point back by diameter
         circles.push(<Circle
           key={2 * frame * this.props.numpoints + point}  // unique key
           centerx={x} // sets the centerx to x specified in line 47
-          centery={this.state.centery[point]}
+          centery={this.state.centery[point]+random}
           radius='2'
           color='white'
           startTime={frame * this.props.frameDuration}

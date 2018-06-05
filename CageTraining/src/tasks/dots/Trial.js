@@ -37,7 +37,7 @@ class TrialDots extends Component {
       direction: direction,
       coherence: coherence,
       jump: ((direction > 0) ? -10 : 10), // HK - "accurate" direction
-      jump2: ((direction < 0) ? -10 : 10), // used for noise direction
+      jump2: ((direction < 0) ? -4 : 4), // used for noise direction
       frameDuration: 20,
       timeDelayToDotOnset: Utils.getRandomIntExp(200,1000,200),
       timeDotDuration: Utils.getRandomInt(500,1000),

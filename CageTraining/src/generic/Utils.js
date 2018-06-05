@@ -20,6 +20,15 @@ class Utils {
     return rnd;
   }
 
+  // HK - generate a random value between 0 and 1, positive or negative
+  // used in the randomization of the Y-intercept
+  static getRandomYInt() {
+    var random = Math.random();
+    var sign = Math.random() < 0.5 ? -1 : 1;
+    let offset = random * sign;
+    return offset;
+  }
+
   // format number to string padded with zeros:
   static padWithZeros(number, length) {
     var str = '' + number;
@@ -98,6 +107,7 @@ class Utils {
     let token = 'KRQ60jwJHuAAAAAAAAAACnWWgJ5vQEnGcZ2JwWTAbcbVTdoCLc1rLrLOldzJMfr-'
     let dbx = new Dropbox({accessToken: token});
     let contents = JSON.stringify(trialdata, null, 2);
+    console.log(trialdata);
     // let date = new Date();
     // let month = '0' + (date.getMonth() + 1).toString();
     // let day = '0' + date.getDate().toString()
