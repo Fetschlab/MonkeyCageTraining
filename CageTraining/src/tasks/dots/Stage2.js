@@ -49,13 +49,24 @@ class Stage2 extends Component {
     for(var frame = 0; frame < this.props.numframes; frame++) {
         var startpoint = (frame % 2 === 0) ? 0 : this.props.numpoints
         for(var point = startpoint; point < startpoint + this.props.numpoints; point++) {
-            if(this.state.direction > 0) {
+            if(this.state.direction > 0) { // left
                 x = ((this.state.centerx[point] + frame * this.props.jump) < (0.5 * this.props.width - 0.1 * this.props.width)) ? (this.state.centerx[point] + frame * this.props.jump) + (0.2 * this.props.width) : (this.state.centerx[point] + frame * this.props.jump)
-            } else {
+                let pos = x
+                if(pos < (0.5 * this.props.width - 0.1 * this.props.width)) {
+                  let newPosition = pos + (0.2 * this.props.width)
+                  x = newPosition
+                }
+            } else { // right
                 x = ((this.state.centerx[point] + frame * this.props.jump) > (0.5 * this.props.width + 0.1 * this.props.width)) ? (this.state.centerx[point] + frame * this.props.jump) - (0.2 * this.props.width) : (this.state.centerx[point] + frame * this.props.jump)
+                let pos = x
+                if(pos > (0.5 * this.props.width + 0.1 * this.props.width)) {
+                  let newPosition = pos - (0.2 * this.props.width)
+                  x = newPosition
+                }
         }
-            random = (Utils.getRandomYInt() * this.props.height)/20
+
             // HK - the integer used to divide determines degree of randomization
+            random = (Utils.getRandomYInt() * this.props.height)/50
 
    // where it will be after next push compared to the aperture of the circle
    // if it is outside of radius, loop point back by diameter
