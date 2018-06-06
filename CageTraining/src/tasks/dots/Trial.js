@@ -92,7 +92,7 @@ class TrialDots extends Component {
           height={this.state.height}
           frameDuration={this.state.frameDuration} // duration of each frame, numframes*frameDuration is dot duration
           numframes={Math.ceil(this.state.timeDotDuration / this.state.frameDuration)}
-          numpoints={5} // number of dots per frame
+          numpoints={8} // number of dots per frame
           jump={this.state.jump}
           coherence={this.state.coherence}
           direction={this.state.direction}
