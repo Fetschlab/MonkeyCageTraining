@@ -36,8 +36,7 @@ class TrialDots extends Component {
       stage: 1,
       direction: direction,
       coherence: coherence,
-      jump: ((direction > 0) ? -10 : 10), // HK - "accurate" direction
-      jump2: ((direction < 0) ? -4 : 4), // used for noise direction
+      jump: ((direction > 0) ? -7 : 7), // -10, 10
       frameDuration: 20,
       timeDelayToDotOnset: Utils.getRandomIntExp(200,1000,200),
       timeDotDuration: Utils.getRandomInt(500,1000),
@@ -92,7 +91,7 @@ class TrialDots extends Component {
           height={this.state.height}
           frameDuration={this.state.frameDuration} // duration of each frame, numframes*frameDuration is dot duration
           numframes={Math.ceil(this.state.timeDotDuration / this.state.frameDuration)}
-          numpoints={8} // number of dots per frame
+          numpoints={7} // number of dots per frame
           jump={this.state.jump}
           coherence={this.state.coherence}
           direction={this.state.direction}

@@ -49,10 +49,10 @@ class Utils {
     return coherence;
   }
 
-  // HK - generates a coherence (high or low)
-  // .25 represents high, .75 represents low
+  // HK - generates a coherence
+  // for instance, .768 moves on avg 76.8% of dots coherently
   static getTrialCoherence() {
-    let coherenceList = [.25, .75];
+    let coherenceList = [.256, .512, .768];
     let numberOfCoherences = coherenceList.length;
     let cohIndex = Math.floor(Math.random()*numberOfCoherences);
     let trialCoherence = coherenceList[cohIndex];
