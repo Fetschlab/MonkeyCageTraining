@@ -36,7 +36,7 @@ class TrialDots extends Component {
       stage: 1,
       direction: direction,
       coherence: coherence,
-      jump: ((direction > 0) ? -7 : 7), // -10, 10
+      jump: ((direction > 0) ? -8 : 8), // -10, 10
       frameDuration: 20,
       timeDelayToDotOnset: Utils.getRandomIntExp(200,1000,200),
       timeDotDuration: Utils.getRandomInt(500,1000),
