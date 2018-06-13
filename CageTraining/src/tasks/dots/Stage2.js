@@ -20,7 +20,7 @@ class Stage2 extends Component {
     let coherence = []
     var screenCenterX = 0.5 * this.props.width
     var screenCenterY = 0.5 * this.props.height
-    var apertureRad = 0.3 * this.props.width // 0.2 by default
+    var apertureRad = 0.2 * this.props.width // 0.2 by default
     for(var point = 0; point < 2 * this.props.numpoints; point++) {
       // HK - for a set of points, the centers are generated
       // random # compared to coherence to determine if noise or coherent
@@ -60,29 +60,29 @@ class Stage2 extends Component {
                 if (this.state.direction > 0) { // left
                     x = (this.state.centerx[point] + frame * this.props.jump)
                     let pos = x
-                    if (pos < (0.5 * this.props.width - 0.15 * this.props.width)) {
-                        let newPosition = pos + (0.3 * this.props.width)
+                    if (pos < (0.5 * this.props.width - 0.1 * this.props.width)) {
+                        let newPosition = pos + (0.2 * this.props.width)
                         x = newPosition
                     }
                 } else { // right
                     x = (this.state.centerx[point] + frame * this.props.jump)
                     let pos = x
-                    if (pos > (0.5 * this.props.width + 0.15 * this.props.width)) {
-                        let newPosition = pos - (0.3 * this.props.width)
+                    if (pos > (0.5 * this.props.width + 0.1 * this.props.width)) {
+                        let newPosition = pos - (0.2 * this.props.width)
                         x = newPosition
                     }
                 }
             } else {
                 // HK - moves all non-coherent dots, randomly replotting every tick
                 color = 'white'
-                x = Utils.getRandomInt((0.35 * this.props.width), (0.65 * this.props.width))
-                y = Utils.getRandomInt((0.35 * this.props.height), (0.65 * this.props.height))
+                x = Utils.getRandomInt((0.4 * this.props.width), (0.6 * this.props.width))
+                y = Utils.getRandomInt((0.4 * this.props.height), (0.6 * this.props.height))
             }
 
             // HK - if a color is outside of circle radius, will not be shown
             // i.e. color set to black on black background
             distance = Math.hypot((x - (this.props.width*0.5)),(y - (this.props.height*0.5)))
-            if (Math.abs(distance) > (0.14 * this.props.width)) { // 0.14 as opposed to 0.15 to smooth circle
+            if (Math.abs(distance) > (0.1 * this.props.width)) { // 0.14 as opposed to 0.15 to smooth circle
               color = 'black'
             }
 
@@ -91,7 +91,7 @@ class Stage2 extends Component {
           key={2 * frame * this.props.numpoints + point}  // unique key
           centerx={x}
           centery={this.state.centery[point]}
-          radius='2'
+          radius='1'
           color={color}
           startTime={frame * this.props.frameDuration}
           endTime={(frame + 1) * this.props.frameDuration - 1}
