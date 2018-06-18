@@ -27,6 +27,9 @@ class App extends Component {
     };
     this.connectBLE = this.connectBLE.bind(this);
 
+    // window.scrollTo(0,1); // HK - force fullscreen
+    // alternatively, try requestFullscreen() on first touch
+
     // prevent dragging on tablet:
     document.addEventListener('touchmove', function(event) {
       event.preventDefault();

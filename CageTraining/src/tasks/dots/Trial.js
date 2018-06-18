@@ -39,8 +39,8 @@ class TrialDots extends Component {
       jump: ((direction > 0) ? -8 : 8), // -10, 10
       frameDuration: 20,
       timeDelayToDotOnset: Utils.getRandomIntExp(200,1000,200),
-      timeDotDuration: Utils.getRandomInt(500,1000),
-      timeTimeOut: 1000, // time to wait after response
+      timeDotDuration: Utils.getRandomInt(750,1000), // HK - should these be random?
+      timeTimeOut: 750, // time to wait after response
     }));
   }
 

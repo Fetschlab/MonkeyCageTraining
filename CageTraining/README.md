@@ -7,8 +7,6 @@ How to develop this thing?
 If hosting on another server, change link in `package.json`
 
 After changing code: `npm run build`
-To copy changed code to the server:
-```
-cd build
-scp -r * danique@shadlenlab.columbia.edu:/mnt/danique
-```
+
+Fetsch lab uses Github to store changes:
+https://github.com/crfetsch/MonkeyCageTraining
