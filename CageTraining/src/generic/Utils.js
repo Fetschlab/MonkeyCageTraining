@@ -38,17 +38,6 @@ class Utils {
     return str;
   }
 
-  // get a coherence value
-  // usually start training your monkey with 768, adding 512 and 256 later:
-  // HK - function no longer used, refer to getTrialCoherence()
-  static getCoherenceCondition() {
-    let fullCohList = [256, 512, 768];
-    let numberOfCoherences = fullCohList.length;
-    let cohIndex = Math.floor(Math.random()*numberOfCoherences);
-    let coherence = fullCohList[cohIndex];
-    return coherence;
-  }
-
   // HK - generates a coherence
   // for instance, .768 moves on avg 76.8% of dots coherently
   static getTrialCoherence() {
