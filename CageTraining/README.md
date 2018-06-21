@@ -10,3 +10,9 @@ After changing code: `npm run build`
 
 Fetsch lab uses Github to store changes:
 https://github.com/crfetsch/MonkeyCageTraining
+
+To change the type of task (until a GUI is added):
+  - Navigate into CageTraining/public/manifest.json
+  - Find the "start_url" and change the type of task
+  - Run 'npm run build' and copy the build folder to server
+  - Enter the new URL defined earlier
