@@ -1,15 +1,16 @@
 How to develop this thing?
   - Go to the Documents/MonkeyCageTraining folder
+  - If first time running, run `npm install` in the CageTraining folder
   - Type `npm start`
   - Visit http://localhost:3000/?monkey=MonkeyName&task=touch
   - Replace 'MonkeyName' with the name of your monkey
 
 If hosting on another server, change link in `package.json`
 
-After changing code: `npm run build`
+After changing code: `npm run build` and upload to server.
 
 Fetsch lab uses Github to store changes:
-https://github.com/crfetsch/MonkeyCageTraining
+https://github.com/Fetschlab/MonkeyCageTraining
 
 To change the type of task (until a GUI is added):
   - Navigate into CageTraining/public/manifest.json
