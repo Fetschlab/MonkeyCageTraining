@@ -8,7 +8,8 @@
     "dropbox": "^2.5.13",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "serialport": "^5.0.0-beta3"
+    "serialport": "^5.0.0-beta3",
+    "zingtouch": "^1.0.6"
   },
   "devDependencies": {
     "react-scripts": "0.9.5",

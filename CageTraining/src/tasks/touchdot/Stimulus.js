@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ZingTouch from 'zingtouch';
 import Circle from '../../generic/Circle';
 import Utils from '../../generic/Utils';
 
@@ -12,19 +13,31 @@ class Stimulus extends Component {
       r: props.r,
       color: 'red',
       isFinalized: false,
+      zt: new ZingTouch.Region(document.getElementById('root')), // HK - sets up zingtouch region
     };
     this.finalize = this.finalize.bind(this);
   }
 
   finalize() {
+    console.log(this.state.zt);
+    // let touchCheck = new ZingTouch.Tap({ tolerance: 125 });
     if(!this.state.isFinalized) {
-      let timestamp = Utils.getTimeStamp();
-      this.setState(prevState => ({
-        color: 'FireBrick',
-        isFinalized: true,
-      }));
-      let data = {timestamp: timestamp};
-      this.props.onFinalized(data);
+        let swipeCheck = false;
+        console.log(swipeCheck + ' before swipe');
+        this.state.zt.bind(document.getElementById('root'), 'swipe', function(e) {
+          swipeCheck = true;
+          console.log(swipeCheck + ' at swipe');
+        });
+        console.log(swipeCheck + ' after swipe');
+        let timestamp = Utils.getTimeStamp();
+        this.setState(prevState => ({
+          color: 'FireBrick',
+          isFinalized: true,
+        }));
+        let data = { timestamp: timestamp };
+        if(swipeCheck === false) {
+          this.props.onFinalized(data);
+        }
     }
   }
 
