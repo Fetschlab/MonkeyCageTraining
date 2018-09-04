@@ -42,7 +42,9 @@ class Task extends Component {
     // set properties of trial:
     let self = this;
     let trialNumberString = Utils.padWithZeros(this.state.trialnumber, 5);
-    let filename = this.state.foldername + '/trial' + trialNumberString + '.json';
+    let trialDate = Utils.getFilenameTime();
+    let filename = this.state.foldername + '/trial' + trialNumberString + trialDate + '.json';
+    // HK - added trial date to file to stop overlapping issue
 
     // show trial:
     let trial = <Trial

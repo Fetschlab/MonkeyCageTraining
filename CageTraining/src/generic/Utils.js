@@ -81,6 +81,17 @@ class Utils {
     return unixTime
   }
 
+  // HK - returns a date in string format for filename
+static getFilenameTime() {
+  var now = new Date();
+  var regex = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}).*$/;
+  var token_array = regex.exec(now.toJSON());
+  // [ "2017-10-31T02:24:45.868Z", "2017", "10", "31", "02", "24", "45" ]
+  var dateString = token_array.slice(1).join('');
+  // "20171031022445"
+  return dateString
+}
+
   // copy int16 to an array of two bytes:
   static toBytesInt16(num){
     let arr = new ArrayBuffer(2)
