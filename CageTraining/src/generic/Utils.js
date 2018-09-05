@@ -107,7 +107,6 @@ static getFilenameTime() {
     let token = 'KRQ60jwJHuAAAAAAAAAACnWWgJ5vQEnGcZ2JwWTAbcbVTdoCLc1rLrLOldzJMfr-'
     let dbx = new Dropbox({accessToken: token});
     let contents = JSON.stringify(trialdata, null, 2);
-    console.log(trialdata);
     // let date = new Date();
     // let month = '0' + (date.getMonth() + 1).toString();
     // let day = '0' + date.getDate().toString()

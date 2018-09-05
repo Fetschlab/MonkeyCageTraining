@@ -18,16 +18,16 @@ class Stimulus extends Component {
     this.finalize = this.finalize.bind(this);
   }
 
-  finalize() {
+  finalize() { // must try https://github.com/zingchart/zingtouch#regionbindelement
     console.log(this.state.zt);
     // let touchCheck = new ZingTouch.Tap({ tolerance: 125 });
     if(!this.state.isFinalized) {
         let swipeCheck = false;
         console.log(swipeCheck + ' before swipe');
         this.state.zt.bind(document.getElementById('root'), 'swipe', function(e) {
-          swipeCheck = true;
+          let swipeCheck = true;
           console.log(swipeCheck + ' at swipe');
-        });
+        }, false);
         console.log(swipeCheck + ' after swipe');
         let timestamp = Utils.getTimeStamp();
         this.setState(prevState => ({
