@@ -1,13 +1,23 @@
-How to develop this thing?
-  - Go to the Documents/MonkeyCageTraining folder
-  - If first time running, run `npm install` in the CageTraining folder
-  - Type `npm start`
-  - Visit http://localhost:3000/?monkey=MonkeyName&task=touch
-  - Replace 'MonkeyName' with the name of your monkey
+Steps in setting up new CageTraining folder
+0. Install JavaScript: https://nodejs.org/en/
+
+1. cd C:\Users\<USERNAME>\Desktop
+2. mkdir MonkeyCageTraining
+3. git clone https://github.com/Fetschlab/MonkeyCageTraining.git
+4. cd CageTraining
+5. npm install
+6. npm install -g create-react-app
+7. npm start // test functionality
+8. CTRL+C; Y // exit window
+9. npm run build
+10. cd build
+11. Copy contents of build folder into webdav folder.
+
+Visit http://localhost:3000/?monkey=MonkeyName&task=touch
+Replace 'MonkeyName' with the name of your monkey
+Replace 'touch' with 'dots' to switch to dots task
 
 If hosting on another server, change link in `package.json`
-
-After changing code: `npm run build` and upload to server.
 
 Fetsch lab uses Github to store changes:
 https://github.com/Fetschlab/MonkeyCageTraining
