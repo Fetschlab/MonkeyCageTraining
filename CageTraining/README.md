@@ -27,3 +27,5 @@ To change the type of task (until a GUI is added):
   - Find the "start_url" and change the type of task
   - Run 'npm run build' and copy the build folder to server
   - Enter the new URL defined earlier
+
+If Bluetooth prompt does not appear, use Chrome Beta (as of 9/12/18, version 69.0.3497.86)

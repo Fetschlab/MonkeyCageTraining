@@ -12,7 +12,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/~hkupers1/MonkeyCageTraining/?monkey=Zarya&task=touchdot",
+  "start_url": "/~hkupers1/MonkeyCageTraining/?monkey=Zarya&task=dots",
   "display": "standalone",
   "orientation": "landscape"
 }
