@@ -13,6 +13,7 @@ class Stimulus extends Component {
       r: props.r,
       color: 'red',
       isFinalized: false,
+      element: document.getElementById('root'),
       zt: new ZingTouch.Region(document.getElementById('root')), // HK - sets up zingtouch region
     };
     this.finalize = this.finalize.bind(this);
@@ -22,22 +23,22 @@ class Stimulus extends Component {
     console.log(this.state.zt);
     // let touchCheck = new ZingTouch.Tap({ tolerance: 125 });
     if(!this.state.isFinalized) {
-        let swipeCheck = false;
-        console.log(swipeCheck + ' before swipe');
-        this.state.zt.bind(document.getElementById('root'), 'swipe', function(e) {
-          let swipeCheck = true;
-          console.log(swipeCheck + ' at swipe');
-        }, false);
-        console.log(swipeCheck + ' after swipe');
-        let timestamp = Utils.getTimeStamp();
-        this.setState(prevState => ({
-          color: 'FireBrick',
-          isFinalized: true,
-        }));
-        let data = { timestamp: timestamp };
-        if(swipeCheck === false) {
-          this.props.onFinalized(data);
-        }
+        var gestureType = this.state.zt.bind(this.state.element);
+
+        gestureType
+              .tap(function(e){
+                  console.log(e.detail);
+                  let timestamp = Utils.getTimeStamp();
+                  this.setState(prevState => ({
+                    color: 'FireBrick',
+                    isFinalized: true,
+                  }));
+                  let data = { timestamp: timestamp };
+                    this.props.onFinalized(data);
+              })
+              .swipe(function(e){
+                  console.log(e.detail);
+              })
     }
   }
 
@@ -52,7 +53,7 @@ class Stimulus extends Component {
   // if component is re-generated, this is called rather than the constructor:
   componentWillReceiveProps(props) {
     this.setState(prevState => ({
-      r: Math.max(prevState.r * 0.995, this.props.minr),
+      r: this.props.r, // 0.995
       color: 'red',
       isFinalized: false,
     }));

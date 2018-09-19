@@ -17,7 +17,7 @@ class TrialTouchDot extends Component {
     return <Stimulus
       width={this.state.width}
       height={this.state.height}
-      r={self.state.height * 0.8}
+      r={self.state.height * 0.2}
       minr={self.state.height * 0.15}
       onFinalized={function(data) {
         self.props.onFinalized(data);
